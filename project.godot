@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="wildjam80"
+run/main_scene="uid://gic1tqrtvdwo"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
