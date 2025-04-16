@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://gic1tqrtvdwo"]
+[gd_scene load_steps=5 format=3 uid="uid://gic1tqrtvdwo"]
 
 [ext_resource type="Texture2D" uid="uid://b4vgxi2j0cys5" path="res://sprites/plain_white.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bakeyxvr44mcd" path="res://flamingo/flamingo.base.tscn" id="2_0xm2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(1.77071, 112)
 
 [node name="Main" type="Node2D"]
 
@@ -32,3 +35,16 @@ texture = ExtResource("1_ig7tw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlainWhite2"]
 shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="PlainWhite3" type="StaticBody2D" parent="."]
+position = Vector2(304, 144)
+scale = Vector2(16.0532, 1)
+
+[node name="PlainWhite2" type="Sprite2D" parent="PlainWhite3"]
+position = Vector2(14.3406, 48)
+scale = Vector2(0.0553347, 3.5)
+texture = ExtResource("1_ig7tw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlainWhite3"]
+position = Vector2(14.3406, 48)
+shape = SubResource("RectangleShape2D_h2yge")

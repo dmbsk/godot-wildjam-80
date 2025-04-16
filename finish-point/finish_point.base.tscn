@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbug08yxwckqs"]
+
+[ext_resource type="Script" uid="uid://6co6hco2qbaq" path="res://finish-point/finish_point.base.gd" id="1_0kkjl"]
+[ext_resource type="Texture2D" uid="uid://b4vgxi2j0cys5" path="res://sprites/plain_white.png" id="2_1mtym"]
+[ext_resource type="Resource" uid="uid://dsrbb4psuo0u1" path="res://flamingo/red/flamingo-red.resource.tres" id="2_12aa2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8m1w"]
+size = Vector2(32, 32)
+
+[node name="FinishPoint" type="Area2D"]
+script = ExtResource("1_0kkjl")
+exit_for = ExtResource("2_12aa2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o8m1w")
+
+[node name="PlainWhite" type="Sprite2D" parent="."]
+texture = ExtResource("2_1mtym")
