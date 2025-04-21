@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="FlamingoResource" load_steps=2 format=3 uid="uid://dw8rgt5hamdji"]
-
-[ext_resource type="Script" uid="uid://cfuvaturhrjhy" path="res://flamingo/flamingo.resource.gd" id="1_oh5or"]
-
-[resource]
-script = ExtResource("1_oh5or")
-flamingoType = 1
-metadata/_custom_type_script = "uid://cfuvaturhrjhy"

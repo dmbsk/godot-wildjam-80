@@ -1,7 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://gic1tqrtvdwo"]
+[gd_scene load_steps=13 format=3 uid="uid://gic1tqrtvdwo"]
 
 [ext_resource type="Texture2D" uid="uid://b4vgxi2j0cys5" path="res://sprites/plain_white.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bakeyxvr44mcd" path="res://flamingo/flamingo.base.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bbug08yxwckqs" path="res://finish-point/finish_point.base.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://cfuvaturhrjhy" path="res://flamingo/flamingo.resource.gd" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cyh2sqfgubwvn" path="res://building/building.component.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bqfkc5r6ygetg" path="res://building/blocks/square_block.tscn" id="6_7mycd"]
+
+[sub_resource type="Resource" id="Resource_lquwl"]
+script = ExtResource("4_1bvp3")
+type = 0
+metadata/_custom_type_script = "uid://cfuvaturhrjhy"
+
+[sub_resource type="Resource" id="Resource_7mycd"]
+script = ExtResource("4_1bvp3")
+type = 1
+metadata/_custom_type_script = "uid://cfuvaturhrjhy"
+
+[sub_resource type="Resource" id="Resource_1bvp3"]
+script = ExtResource("4_1bvp3")
+type = 0
+metadata/_custom_type_script = "uid://cfuvaturhrjhy"
+
+[sub_resource type="Resource" id="Resource_272bh"]
+script = ExtResource("4_1bvp3")
+type = 1
+metadata/_custom_type_script = "uid://cfuvaturhrjhy"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(32, 32)
@@ -13,12 +37,28 @@ size = Vector2(1.77071, 112)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="FinishPoint" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(503, 231)
+exit_for = SubResource("Resource_lquwl")
+
+[node name="FinishPoint2" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(531, 117)
+exit_for = SubResource("Resource_7mycd")
+
 [node name="Flamingo" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(-516, 205)
+flamingo_resource = SubResource("Resource_1bvp3")
+
+[node name="Flamingo2" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(-519, -267)
+flamingo_resource = SubResource("Resource_272bh")
+jump_interval = 1.0
+jump_height = 500.0
+speed = 7000.0
 
 [node name="PlainWhite" type="StaticBody2D" parent="."]
-position = Vector2(-280, 264)
-scale = Vector2(16.0532, 1)
+position = Vector2(-329, 264)
+scale = Vector2(13, 1)
 
 [node name="PlainWhite2" type="Sprite2D" parent="PlainWhite"]
 texture = ExtResource("1_ig7tw")
@@ -27,8 +67,8 @@ texture = ExtResource("1_ig7tw")
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="PlainWhite2" type="StaticBody2D" parent="."]
-position = Vector2(296, 264)
-scale = Vector2(16.0532, 1)
+position = Vector2(336, 264)
+scale = Vector2(13, 1)
 
 [node name="PlainWhite2" type="Sprite2D" parent="PlainWhite2"]
 texture = ExtResource("1_ig7tw")
@@ -48,3 +88,7 @@ texture = ExtResource("1_ig7tw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlainWhite3"]
 position = Vector2(14.3406, 48)
 shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Building" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(2, -350)
+build_block_scene = ExtResource("6_7mycd")
