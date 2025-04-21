@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbug08yxwckqs"]
+
+[ext_resource type="Script" uid="uid://6co6hco2qbaq" path="res://finish-point/finish_point.base.gd" id="1_0kkjl"]
+[ext_resource type="Texture2D" uid="uid://b4vgxi2j0cys5" path="res://sprites/plain_white.png" id="2_1mtym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8m1w"]
+size = Vector2(32, 32)
+
+[node name="FinishPoint" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_0kkjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o8m1w")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.196078)
+texture = ExtResource("2_1mtym")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
