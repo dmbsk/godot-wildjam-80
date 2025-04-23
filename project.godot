@@ -19,6 +19,12 @@ config/icon="res://icon.svg"
 
 GlobalFlamingoType="*res://flamingo/flamingo-type.gd"
 
+[display]
+
+window/size/viewport_width=576
+window/size/viewport_height=324
+window/stretch/mode="canvas_items"
+
 [input]
 
 build_place={

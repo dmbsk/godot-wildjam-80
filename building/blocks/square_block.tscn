@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqfkc5r6ygetg"]
+[gd_scene load_steps=4 format=3 uid="uid://bqfkc5r6ygetg"]
 
-[ext_resource type="Texture2D" uid="uid://b4vgxi2j0cys5" path="res://sprites/plain_white.png" id="1_d5x4v"]
+[ext_resource type="Texture2D" uid="uid://88jq1twwo7mo" path="res://assets/tilemap.png" id="1_d5x4v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18fil"]
+atlas = ExtResource("1_d5x4v")
+region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18fil"]
-size = Vector2(32, 32)
+size = Vector2(16, 16)
 
 [node name="SquareBlock" type="StaticBody2D"]
 
 [node name="PlainWhite" type="Sprite2D" parent="."]
-texture = ExtResource("1_d5x4v")
+texture_filter = 3
+texture = SubResource("AtlasTexture_18fil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_18fil")
