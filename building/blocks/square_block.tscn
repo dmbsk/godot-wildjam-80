@@ -1,9 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqfkc5r6ygetg"]
 
-[ext_resource type="Texture2D" uid="uid://88jq1twwo7mo" path="res://assets/tilemap.png" id="1_d5x4v"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_epdic"]
+load_path = "res://.godot/imported/monochrome_tilemap_transparent_packed.png-e7508221f5a2cd4dfd21e6cd480e6bc6.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_18fil"]
-atlas = ExtResource("1_d5x4v")
+atlas = SubResource("CompressedTexture2D_epdic")
 region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18fil"]

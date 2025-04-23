@@ -1,13 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbug08yxwckqs"]
 
 [ext_resource type="Script" uid="uid://6co6hco2qbaq" path="res://finish-point/finish_point.base.gd" id="1_0kkjl"]
-[ext_resource type="Texture2D" uid="uid://88jq1twwo7mo" path="res://assets/tilemap.png" id="2_0kkjl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8m1w"]
 size = Vector2(14, 15)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_epdic"]
+load_path = "res://.godot/imported/monochrome_tilemap_transparent_packed.png-e7508221f5a2cd4dfd21e6cd480e6bc6.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1mtym"]
-atlas = ExtResource("2_0kkjl")
+atlas = SubResource("CompressedTexture2D_epdic")
 region = Rect2(256, 32, 16, 16)
 
 [node name="FinishPoint" type="Area2D"]

@@ -1,7 +1,85 @@
-[gd_scene load_steps=4 format=3 uid="uid://bakeyxvr44mcd"]
+[gd_scene load_steps=15 format=3 uid="uid://bakeyxvr44mcd"]
 
 [ext_resource type="Script" uid="uid://cva74tcxljd76" path="res://flamingo/flamingo.base.gd" id="1_82hxm"]
+[ext_resource type="Texture2D" uid="uid://pxt4604ixeyh" path="res://assets/tilemap.png" id="2_82hxm"]
 [ext_resource type="Texture2D" uid="uid://b4vgxi2j0cys5" path="res://sprites/plain_white.png" id="2_vaaeg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cuno"]
+atlas = ExtResource("2_82hxm")
+region = Rect2(96, 192, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_epdic"]
+load_path = "res://.godot/imported/monochrome_tilemap_transparent_packed.png-e7508221f5a2cd4dfd21e6cd480e6bc6.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82hxm"]
+atlas = SubResource("CompressedTexture2D_epdic")
+region = Rect2(80, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaaeg"]
+atlas = SubResource("CompressedTexture2D_epdic")
+region = Rect2(0, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pydl"]
+atlas = SubResource("CompressedTexture2D_epdic")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vohqq"]
+atlas = SubResource("CompressedTexture2D_epdic")
+region = Rect2(32, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk7xx"]
+atlas = SubResource("CompressedTexture2D_epdic")
+region = Rect2(48, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhxa4"]
+atlas = SubResource("CompressedTexture2D_epdic")
+region = Rect2(64, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4yam"]
+atlas = SubResource("CompressedTexture2D_epdic")
+region = Rect2(80, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8cuno"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cuno")
+}],
+"loop": true,
+"name": &"in_exit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82hxm")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaaeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pydl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vohqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk7xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhxa4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4yam")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pydl"]
 size = Vector2(16, 16)
@@ -9,11 +87,18 @@ size = Vector2(16, 16)
 [node name="Flamingo" type="CharacterBody2D"]
 script = ExtResource("1_82hxm")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, 2.38419e-07)
-scale = Vector2(0.5, 0.5)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.490196)
+texture_filter = 2
+position = Vector2(1.19209e-07, 2)
+scale = Vector2(0.4375, 0.375)
 texture = ExtResource("2_vaaeg")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 3
+sprite_frames = SubResource("SpriteFrames_8cuno")
+animation = &"in_exit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2pydl")
@@ -34,16 +119,17 @@ rotation = 1.5708
 
 [node name="JumpProgress" type="ProgressBar" parent="Control"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -8.0
+offset_left = 8.0
 offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 12.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 show_percentage = false

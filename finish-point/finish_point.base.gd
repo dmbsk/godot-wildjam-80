@@ -19,18 +19,17 @@ func _ready():
 	timer.timeout.connect(handle_timeout)
 
 func handle_body_exit(body: Node2D):
-	if(body is FlamingoCharacter):
+	if (body is FlamingoCharacter):
 		timer.stop();
 		body.exited_finish_zone.emit()
 		var flamingo = null;
 
 func handle_body_enter(body: Node2D):
-	if(body is FlamingoCharacter):
+	if (body is FlamingoCharacter):
 		timer.start(seconds_in_exit);
 		body.entered_finish_zone.emit()
 		flamingo = body;
 		
 func handle_timeout():
-	if(flamingo):
+	if (flamingo):
 		flamingo.stayed_in_finish_zone.emit()
-	

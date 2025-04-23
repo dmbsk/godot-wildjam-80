@@ -8,8 +8,6 @@ class_name BuildingComponent
 
 @onready var build_cursor: Sprite2D = %BuildCursor
 
-var levelTilemap: TileMapLayer
-
 func _ready():
 	position = Vector2.ZERO
 
@@ -20,7 +18,6 @@ func _input(event):
 	build_cursor.position = tilemapMousePos
 	
 	var tile_data = level.tilelayer.get_cell_tile_data(level.tilelayer.local_to_map(level.tilelayer.to_local(get_global_mouse_position())))
-	print(tile_data)
 	if tile_data == null:
 		build_cursor.modulate = Color(1, 1, 1, 1) # White for empty tiles
 	else:

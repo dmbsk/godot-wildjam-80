@@ -1,9 +1,10 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c3mpiiqsp7cqq"]
 
-[ext_resource type="Texture2D" uid="uid://88jq1twwo7mo" path="res://assets/tilemap.png" id="1_va3bw"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_epdic"]
+load_path = "res://.godot/imported/monochrome_tilemap_transparent_packed.png-e7508221f5a2cd4dfd21e6cd480e6bc6.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qm4s1"]
-texture = ExtResource("1_va3bw")
+texture = SubResource("CompressedTexture2D_epdic")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

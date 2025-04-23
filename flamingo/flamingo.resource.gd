@@ -9,6 +9,6 @@ func set_collision(collision_object: CollisionObject2D):
 	collision_object.set_collision_layer_value(coll, 1)
 	collision_object.set_collision_mask_value(coll, 1)
 
-func set_color(sprite: Sprite2D):
-	sprite.modulate = GlobalFlamingoType.getCollisionColor(type)
-	
+func set_color(s):
+	if (s is Sprite2D or s is AnimatedSprite2D):
+		s.modulate = GlobalFlamingoType.getCollisionColor(type)

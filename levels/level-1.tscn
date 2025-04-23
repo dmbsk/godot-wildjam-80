@@ -1,22 +1,19 @@
 [gd_scene load_steps=8 format=4 uid="uid://2o2k3pnrp0c5"]
 
 [ext_resource type="PackedScene" uid="uid://d15mmcbgfpmsk" path="res://tilemap/tilemap.tscn" id="1_gp3yc"]
+[ext_resource type="Script" uid="uid://ppr81ieccyac" path="res://levels/level.gd" id="1_oewpf"]
 [ext_resource type="Texture2D" uid="uid://b4vgxi2j0cys5" path="res://sprites/plain_white.png" id="1_ogvtk"]
-[ext_resource type="PackedScene" uid="uid://bakeyxvr44mcd" path="res://flamingo/flamingo.base.tscn" id="2_68uyt"]
 [ext_resource type="Script" uid="uid://cfuvaturhrjhy" path="res://flamingo/flamingo.resource.gd" id="3_471vb"]
 [ext_resource type="PackedScene" uid="uid://bbug08yxwckqs" path="res://finish-point/finish_point.base.tscn" id="4_i5boj"]
+[ext_resource type="PackedScene" uid="uid://b1fb0onjyg7yu" path="res://flamingo/flamingo-red.tscn" id="5_ogvtk"]
 
 [sub_resource type="Resource" id="Resource_ogvtk"]
 script = ExtResource("3_471vb")
 type = 0
 metadata/_custom_type_script = "uid://cfuvaturhrjhy"
 
-[sub_resource type="Resource" id="Resource_i5boj"]
-script = ExtResource("3_471vb")
-type = 0
-metadata/_custom_type_script = "uid://cfuvaturhrjhy"
-
 [node name="1_level" type="Node2D"]
+script = ExtResource("1_oewpf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -40,8 +37,7 @@ tile_map_data = PackedByteArray("AAAAAAMAAAAKAAUAAAABAAMAAAALAAUAAAACAAMAAAALAAU
 [node name="Red" parent="Tilemap" index="0"]
 tile_map_data = PackedByteArray("AAAPAAQAAAALAAYAAAAQAAQAAAALAAYAAAARAAQAAAALAAYAAAASAAQAAAALAAYAAAASAAUAAAALAAYAAAARAAUAAAALAAYAAAAQAAUAAAALAAYAAAAPAAUAAAALAAYAAAAPAAYAAAALAAYAAAAQAAYAAAALAAYAAAARAAYAAAALAAYAAAASAAYAAAALAAYAAAASAAcAAAALAAYAAAASAAgAAAALAAYAAAASAAkAAAALAAYAAAARAAkAAAALAAYAAAARAAgAAAALAAYAAAARAAcAAAALAAYAAAAPAAgAAAALAAYAAAAOAAgAAAALAAYAAAANAAgAAAALAAYAAAAMAAgAAAALAAYAAAALAAgAAAALAAYAAAAKAAgAAAALAAYAAAAJAAgAAAALAAYAAAAIAAgAAAALAAYAAAAHAAgAAAALAAYAAAAGAAgAAAALAAYAAAAFAAgAAAALAAYAAAAFAAkAAAALAAYAAAAGAAkAAAALAAYAAAAHAAkAAAALAAYAAAAIAAkAAAALAAYAAAAJAAkAAAALAAYAAAAKAAkAAAALAAYAAAALAAkAAAALAAYAAAAMAAkAAAALAAYAAAANAAkAAAALAAYAAAAOAAkAAAALAAYAAAAPAAkAAAALAAYAAAABAAQAAAALAAYAAAACAAQAAAALAAYAAAADAAQAAAALAAYAAAAEAAQAAAALAAYAAAAEAAUAAAALAAYAAAADAAUAAAALAAYAAAACAAUAAAALAAYAAAABAAUAAAALAAYAAAABAAYAAAALAAYAAAABAAcAAAALAAYAAAABAAgAAAALAAYAAAABAAkAAAALAAYAAAACAAkAAAALAAYAAAACAAgAAAALAAYAAAACAAcAAAALAAYAAAACAAYAAAALAAYAAAADAAYAAAALAAYAAAADAAcAAAALAAYAAAADAAgAAAALAAYAAAADAAkAAAALAAYAAAAEAAYAAAALAAYAAAA=")
 
-[node name="Flamingo" parent="." instance=ExtResource("2_68uyt")]
-position = Vector2(-184, 40)
-flamingo_resource = SubResource("Resource_i5boj")
+[node name="Flamingo-red" parent="." instance=ExtResource("5_ogvtk")]
+position = Vector2(-192, 32)
 
 [editable path="Tilemap"]
