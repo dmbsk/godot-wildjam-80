@@ -133,3 +133,10 @@ offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 show_percentage = false
+
+[node name="ForwardRaycast" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(10, -8.74228e-07)
+
+[node name="RaycastTimer" type="Timer" parent="ForwardRaycast"]
+unique_name_in_owner = true

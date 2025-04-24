@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://6co6hco2qbaq" path="res://finish-point/finish_point.base.gd" id="1_0kkjl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8m1w"]
-size = Vector2(14, 15)
+size = Vector2(0, 15)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_epdic"]
 load_path = "res://.godot/imported/monochrome_tilemap_transparent_packed.png-e7508221f5a2cd4dfd21e6cd480e6bc6.ctex"

@@ -11,9 +11,15 @@ class_name FlamingoCharacter
 
 @export var gravity: float = 600;
 
+@export var direction: int = 1
+@export var direction_time_change: float = 2
+var last_direction: int = 0;
+
 @onready var jump_timer: Timer = %JumpTimer
 @onready var jump_progress: ProgressBar = %JumpProgress
 @onready var sprite: AnimatedSprite2D = %Sprite
+@onready var forward_raycast: RayCast2D = %ForwardRaycast
+@onready var forward_raycast_timer: Timer = %RaycastTimer
 
 var can_jump: bool = false
 var is_in_exit: bool = false
@@ -27,6 +33,10 @@ func _ready() -> void:
 	flamingo_resource.set_color(sprite)
 	jump_timer.start(jump_interval)
 	jump_timer.timeout.connect(handle_jump_timeout)
+
+	forward_raycast_timer.one_shot = true
+	forward_raycast_timer.autostart = false
+	forward_raycast_timer.timeout.connect(handle_direction_timer)
 	
 	entered_finish_zone.connect(handle_enter_finish_zone)
 	exited_finish_zone.connect(handle_exit_finish_zone)
@@ -37,7 +47,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	start_stop_timer()
 	velocity.y += delta * gravity;
-	velocity.x = delta * speed;
+	velocity.x = delta * speed * direction;
 
 	sprite.play("run")
 
@@ -47,8 +57,16 @@ func _physics_process(delta: float) -> void:
 	if (!is_on_floor()):
 		sprite.play("jump")
 
-	if (is_in_exit):
+	if (is_on_floor() && forward_raycast.get_collider() && forward_raycast_timer.is_stopped()):
+			forward_raycast_timer.start(direction_time_change)
+
+	if (!forward_raycast.get_collider()):
+		forward_raycast_timer.stop()
+			
+	if (is_in_exit && is_on_floor()):
+		velocity.x = 0
 		sprite.play('in_exit')
+
 	
 	jump_progress.value = jump_timer.time_left
 	move_and_slide()
@@ -79,3 +97,8 @@ func handle_exit_finish_zone():
 	
 func handle_stayed_in_finish_zone():
 	queue_free()
+
+func handle_direction_timer():
+	direction *= -1
+	sprite.flip_h = !sprite.flip_h
+	forward_raycast.rotation_degrees += 180
